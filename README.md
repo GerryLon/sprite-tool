@@ -1,8 +1,5 @@
 Usage:
+* put some small images to slice dir
 * npm install
-* node index.js
+* npm run sprite 
 
-dir structure:
-```
-  
-```
