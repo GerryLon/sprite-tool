@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "sprite": "gulp sprite"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp.spritesmith": "^6.9.0",
+    "shelljs": "^0.8.1"
+  }
+}
