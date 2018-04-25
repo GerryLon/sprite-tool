@@ -55,7 +55,7 @@ settings = Object.assign({}, settings, config);
 if (shell.ls('img').code !== 0) {
   shell.mkdir('img');
 } else {
-  shell.ls('rm -rf img/*');
+  shell.rm('-rf', 'img/*');
 }
 
 gulp.task('sprite', function() {
