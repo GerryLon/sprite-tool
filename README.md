@@ -3,12 +3,11 @@
 ### First
 `git clone git@github.com:GerryLon/sprite-tool.git`   
 `cd sprite-tool`
+put some small images to slice dir   
 
 ### then
 
 You Can:   
-    
-* put some small images to slice dir   
 * npm install   
 * npm run sprite 
 
