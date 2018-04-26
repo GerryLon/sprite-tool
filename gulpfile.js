@@ -106,3 +106,49 @@ gulp.task('sprite', function() {
 
   return spriteData.pipe(gulp.dest('./img'));
 });
+
+
+// 单张图作为背景, 不合并
+gulp.task('sprite_single', function() {
+  var spriteData = gulp.src('./slice_single/*.*(png|jpg|jpeg|gif)')
+    .pipe(spritesmith({
+      imgName: 'sprite-single.png', // 生成的雪碧图的路径
+      cssName: './_sprite_single.less',
+      padding: 4, // 每个图片之间的间距，默认为0px
+      cssTemplate: (data) => {
+        // data为对象，保存合成前小图和合成打大图的信息包括小图在大图之中的信息
+        let arr = [],
+          width = data.spritesheet.px.width,
+          height = data.spritesheet.px.height,
+          url = data.spritesheet.image;
+
+        arr.push(
+`.icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+`);
+        
+        data.sprites.forEach(function(sprite) {
+
+          var source_image = path.basename(sprite.source_image);
+        arr.push(
+`
+.i-${sprite.name} {
+  width: ${sprite.px.width};
+  height: ${ sprite.px.height};
+  background-image: url("../img/slice/${source_image}");
+  background-size: ${sprite.px.width} ${sprite.px.height};
+}
+`
+            );
+        });
+        // return "@fs:108rem;\n"+arr.join("")
+        return arr.join("");
+      },
+    }));
+
+    return spriteData.pipe(gulp.dest('./img'));
+});

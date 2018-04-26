@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "sprite": "gulp sprite"
+    "sprite": "gulp sprite",
+    "sprite_single": "gulp sprite_single"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
